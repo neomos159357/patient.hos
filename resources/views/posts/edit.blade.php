@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Edit Patient</h1>
-    {!! Form::open(['action' => ['PostsController@update', $post->patient_id], 'method' => 'POST']) !!}
+    {!! Form::open(['action' => ['PostsController@update', $post->patient_id], 'method' => 'PUT']) !!}
 <div class="form-group">
     {{Form::label('patient_id','ID')}}
     {{Form::text('patient_id', $post->patient_id ,['class' => 'form-control', 'placeholder' => 'ID'])}}

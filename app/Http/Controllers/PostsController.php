@@ -91,7 +91,7 @@ class PostsController extends Controller
     {
         //
         $post = Post::find($id);
-        return view('posts.show')->with('post', $post);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -137,8 +137,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        // return response()->json(['name' => 'Mos']);
         //
-        $post = Post::find($id);
+        $post = Post::find($id)->first();
+        dd($post['id']);
         $post->delete();
         return redirect('/posts')->with('Success', 'Patient Deleted');
     }

@@ -11,10 +11,10 @@
     <h2>เพศ  {{$post->Gender}}</h2>
     <h2>แพทย์ประจำตัว  {{$post->General_Practice}}</h2>
     <h2>สิทธิ์ 30 บาท  {{$post->bath30_flag}}</h2>
-
+    {{-- /posts/3/edit --}}
     <a href="/posts/{{$post->patient_id}}/edit" class="btn btn-default">Edit</a>
-
-    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+    
+    {!!Form::open(['url' => ['patient', $post->patient_id], 'method' => 'delete', 'class' => 'pull-right'])!!}
         {{Form::hidden('_method','DELETE')}}
         {{Form::submit('Delete' ,['class' => 'btn btn-danger'] )}}
     {!!Form::close()!!}
